@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <div>
-    <img src="/vite.svg" class="logo" alt="Vite logo" />
-  </div>
+  <router-view />
 </template>
 
 <style lang="scss">
