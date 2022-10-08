@@ -3,12 +3,25 @@ vue.<template>
     <div class="logo">
         <img src="../assets/vue.svg" alt="vue-logo">
     </div>
+    
     <div class="menu-toggle-wrap">
         <button class="menu-toggle" @click="ToggleMenu">
-            <span class="material-symbols-outlined">
+            <span class="material-icons">
             keyboard_double_arrow_right
             </span>
         </button>
+    </div>
+
+    <h3>Menu</h3>
+    <div class="menu">
+        <router-link class="button" to="/profile">
+            <span class="material-icons">account_circle</span>
+            <span class="text">Profile</span>
+        </router-link>
+        <router-link class="button" to="/credit-card">
+            <span class="material-icons">credit_card</span>
+            <span class="text">Credit Card</span>
+        </router-link>
     </div>
   </aside>
 </template>
@@ -40,10 +53,47 @@ aside {
             width: 2rem;
         }
     }
+    .menu-toggle-wrap {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+        position: relative;
+        top: 0;
+        transition: 0.4s ease-in-out;
+
+        .menu-toggle {
+            transition: 0.4s ease-out;
+
+            .material-icons {
+                font-size: 2rem;
+                color: var(--light);
+                transition: 0.4s ease-out;
+            }
+
+            &:hover {
+                .material-icons {
+                    color: var(--primary);
+                    transform: translateX(0.5rem);
+                }
+            }
+        }
+    }
     &.is-expanded {
         width: var(--expanded-sidebar-width);
         .menu-toggle-wrap {
             top: -3rem;
+            .menu-toggle {
+            transform: rotate(-180deg);
+            .material-icons {
+                color: var(--light);
+            }
+            &:hover {
+                .material-icons {
+                    color: var(--primary);
+                    transform: translateX(0.5rem);
+                }
+            }
+        }
         }
     }
     @media (max-width: 768px) {
