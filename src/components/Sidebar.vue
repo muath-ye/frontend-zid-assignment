@@ -92,40 +92,40 @@ aside {
     cursor: default;
   }
   .menu {
-      margin: 0 -1rem;
+    margin: 0 -1rem;
 
-      .button {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
+    .button {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: 0.2s ease-out;
+      opacity: 1;
+
+      .material-icons {
+        font-size: 2rem;
+        color: var(--light);
         transition: 0.2s ease-out;
-        opacity: 1;
+      }
 
-        .material-icons {
-          font-size: 2rem;
-          color: var(--light);
-          transition: 0.2s ease-out;
-        }
+      .text {
+        color: var(--light);
+        transition: 0.2s ease-out;
+      }
 
-        .text {
-          color: var(--light);
-          transition: 0.2s ease-out;
-        }
+      &:hover, &.router-link-exact-active {
+        background-color: var(--dark-alt);
 
-        &:hover, &.router-link-exact-active {
-          background-color: var(--dark-alt);
-
-          .material-icons, .text {
-            color: var(--primary);
-          }
+        .material-icons, .text {
+          color: var(--primary);
         }
       }
-      .router-link-exact-active {
-        border-left: 0.2rem;
-        border-left-color: var(--primary);
-        border-left-style: solid;
-      }
+    }
+    .router-link-exact-active {
+      border-left: 0.2rem;
+      border-left-color: var(--primary);
+      border-left-style: solid;
+    }
   }
 
   &.is-expanded {
@@ -171,6 +171,58 @@ aside {
   aside {
     background-color: var(--light);
     color: var(--dark-alt);
+
+    .menu {
+      .button {
+        .material-icons {
+          color: var(--dark-alt);
+        }
+
+        .text {
+          color: var(--dark-alt);
+        }
+        &:hover, &.router-link-exact-active {
+          background-color: var(--dark-alt);
+
+          .material-icons, .text {
+            color: var(--primary);
+          }
+        }
+      }
+      .router-link-exact-active {
+        border-left: 0.2rem;
+        border-left-color: var(--primary);
+        border-left-style: solid;
+      }
+    }
+
+    .menu-toggle-wrap {
+        .menu-toggle {
+          .material-icons {
+            color: var(--dark-alt);
+          }
+          &:hover {
+            .material-icons {
+              color: var(--primary);
+            }
+          }
+        }
+      }
+
+    &.is-expanded {
+      .menu-toggle-wrap {
+        .menu-toggle {
+          .material-icons {
+            color: var(--dark-alt);
+          }
+          &:hover {
+            .material-icons {
+              color: var(--primary);
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>
