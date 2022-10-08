@@ -5,7 +5,7 @@
   --dark: #242424;
   --dark-alt: #474747;
   --light: #f1f5f9;
-  --sidebar-width: 2rem + 23px;
+  --expanded-sidebar-width: calc(2rem * 8);
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
