@@ -1,6 +1,6 @@
 <template>
     <main id="home-page">
-        <div class="w-100 rounded-lg overflow-hidden self-center grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
+        <div class="w-100 rounded-lg overflow-hidden self-center grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
             <div class="bg-white dark:bg-zinc-800 mt-10 rounded-lg">
                 <div class="flex items-center justify-center pt-10 flex-col">
                     <img src="https://avatars.githubusercontent.com/u/71807824?s=200&v=4" class="rounded-full w-32">
