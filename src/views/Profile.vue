@@ -2,7 +2,7 @@
     <main id="home-page">
         <div
             class="w-100 rounded-lg overflow-hidden self-center lg:flex lg:justify-center grid lg:grid-cols-1 md:grid-cols-2 grid-cols-1 gap-4 bg-white dark:bg-zinc-800 mt-10 rounded-lg">
-            <img src="https://avatars.githubusercontent.com/u/71807824?s=400&v=4"
+            <img src="https://pbs.twimg.com/profile_images/1578932321587281920/j3V7oJWR_400x400.jpg"
                 class="rounded-full xl:w-96 w-28 lg:w-96 md:w-56 sm:w-44 sm:mx-auto lg:mx-px mx-auto m-3">
 
             <div class="flex items-center justify-center md:pt-10 sm:pt-0 flex-col">
