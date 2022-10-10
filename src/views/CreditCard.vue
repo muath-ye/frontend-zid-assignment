@@ -1,5 +1,5 @@
 <script setup ts>
-import { ref, reactive, computed, watch, onMounted, onBeforeMount } from 'vue'
+import { ref } from 'vue'
 
 const Months = [
   { month: '0' + 1 },
@@ -15,7 +15,9 @@ const Months = [
   { month: 11 },
   { month: 12 },
 ];
-const years = [];
+const years = [
+  2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029
+];
 //selection options
 const monthSelection = ref('')
 const yearSelection = ref('')
@@ -57,13 +59,7 @@ function inputFormat() {
   //after formatd they callback cardType for choose a type of the card
   this.GetCardType(this.cardVadid);
 }
-//loop for the next 9 years for expire data on credit card
-function expirationDate() {
-  let yearNow = new Date().getFullYear();
-  for (let i = yearNow; i < yearNow + this.timeToExpire; i++) {
-    this.years.push({ year: i });
-  }
-};
+
 function validCreditCard(value) {
   let inputValidate = document.getElementById('cardNumber');
   // luhn algorithm
@@ -114,17 +110,20 @@ function GetCardType(number) {
 //mouse down on btn
 function mouseDw() {
   this.btnClassName = 'btn__active';
-};
+}
 //mouse up on btn
 function mouseUp() {
   this.btnClassName = '';
-};
+}
 
-// onMounted(
-//   () => {
-//     //get date for options on html
-//     this.expirationDate()
-//   });
+function blr() {
+  let cr = document.getElementsByClassName('card--credit__card')[0];
+  cr.classList.remove('cvv-active')
+}
+function fcs() {
+  let cr = document.getElementsByClassName('card--credit__card')[0];
+  cr.classList.add('cvv-active')
+}
 </script>
 <template>
   <main id="credit-card-page">
