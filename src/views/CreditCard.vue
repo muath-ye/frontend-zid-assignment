@@ -15,8 +15,15 @@ const Months = [
   { month: 11 },
   { month: 12 },
 ];
-const years = [
-  2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029
+const Years = [
+  { year: 2022 },
+  { year: 2023 },
+  { year: 2024 },
+  { year: 2025 },
+  { year: 2026 },
+  { year: 2027 },
+  { year: 2028 },
+  { year: 2029 }
 ];
 //selection options
 const monthSelection = ref('')
@@ -125,6 +132,7 @@ function fcs() {
   cr.classList.add('cvv-active')
 }
 </script>
+
 <template>
   <main id="credit-card-page">
     <div class="card">
@@ -186,7 +194,7 @@ function fcs() {
                 </select>
                 <select v-model='yearSelection' name="expirationDate__year">
                   <option value="">Year</option>
-                  <option v-for='item in years' :value="item.year">{{item.year}}</option>
+                  <option v-for='item in Years' :value="item.year">{{item.year}}</option>
                 </select>
               </div>
               <div class="cvv">
@@ -203,38 +211,6 @@ function fcs() {
 </template>
 
 <style lang="scss" scoped>
-@import "https://fonts.googleapis.com/css?family=Roboto&display=swap";
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background: #2e2e2e;
-  font-family: roboto, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background: #2e2e2e;
-  font-family: roboto, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  position: absolute;
-  height: 100%;
-  width: 430px;
-}
-
 .card {
   width: 100%;
   height: 90vh;
@@ -245,334 +221,346 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  width: fit-content;
 
-.card-container {
-  top: 0;
-  perspective: 1000px;
-  position: relative;
-  width: 350px;
-  height: 200px;
-  z-index: 2;
-  left: 40px;
-  top: 110px;
-}
+  .container {
+    position: absolute;
+    height: 100%;
+    width: 430px;
+  }
 
-.card--credit__card {
-  width: 350px;
-  height: 200px;
-  border-radius: 10px;
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRtX-QkYwDKEXw_jriWgI5vplXUadOusPHRitOZKZCfBqJqK7IU");
-  background-size: cover;
-  position: relative;
-  z-index: 2;
-  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  transition: 1s ease;
-  transform-style: preserve-3d;
-}
 
-.card--form {
-  width: 430px;
-  height: 460px;
-  background: #fff;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  position: absolute;
-  z-index: 1;
-  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
+  .card-container {
+    top: 0;
+    perspective: 1000px;
+    position: relative;
+    width: 350px;
+    height: 200px;
+    z-index: 2;
+    left: 40px;
+    top: 110px;
+  }
 
-form {
-  width: 100%;
-  height: 65%;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  font-size: 13px;
+  .card--credit__card {
+    width: 350px;
+    height: 200px;
+    border-radius: 10px;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRtX-QkYwDKEXw_jriWgI5vplXUadOusPHRitOZKZCfBqJqK7IU");
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    transition: 1s ease;
+    transform-style: preserve-3d;
+  }
 
-  input {
+  .card--form {
+    width: 430px;
+    height: 460px;
+    background: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  form {
+    width: 100%;
+    height: 65%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: 13px;
+
+    input {
+      width: 90%;
+      height: 25px;
+      border: 2px solid #ccc;
+      outline: none;
+      border-radius: 5px;
+      padding-left: 5px;
+      margin-left: auto;
+      margin-right: auto;
+
+      &:focus {
+        box-shadow: 0 0 5px #d4eafd;
+        border-color: #4bdee5;
+      }
+    }
+  }
+
+  label {
+    padding: 15px 0px 0px 20px;
+    color: #595959;
+  }
+
+  .date--expiration {
     width: 90%;
-    height: 25px;
+    height: 50px;
+    margin: 20px 0px 0px 0px;
+    padding: 0px 5px 0px 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+      width: 100px;
+    }
+  }
+
+  select {
+    width: 100px;
+    height: 33px;
     border: 2px solid #ccc;
     outline: none;
     border-radius: 5px;
-    padding-left: 5px;
-    margin-left: auto;
-    margin-right: auto;
+  }
 
-    &:focus {
-      box-shadow: 0 0 5px #d4eafd;
-      border-color: #4bdee5;
+  .card__logo {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
+    margin-right: 5px;
+    margin-top: 5px;
+  }
+
+  img {
+    width: 60px;
+    height: 40px;
+    user-select: none;
+  }
+
+  img[src=""] {
+    display: none;
+  }
+
+  .visa {
+    width: 58px;
+    height: 25px;
+  }
+
+  .elo {
+    height: 27px;
+  }
+
+  .Cheader {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row-reverse;
+  }
+
+  .card__chip {
+    width: 55px;
+    height: 40px;
+    background: #D4AF37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    margin-left: 5px;
+    margin-top: 5px;
+
+    svg {
+      width: 58px;
+      height: 80px;
+      position: relative;
+      top: 7px;
     }
   }
-}
 
-label {
-  padding: 15px 0px 0px 20px;
-  color: #595959;
-}
-
-.date--expiration {
-  width: 90%;
-  height: 50px;
-  margin: 20px 0px 0px 0px;
-  padding: 0px 5px 0px 5px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  input {
-    width: 100px;
-  }
-}
-
-select {
-  width: 100px;
-  height: 33px;
-  border: 2px solid #ccc;
-  outline: none;
-  border-radius: 5px;
-}
-
-.card__logo {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-user-drag: none;
-  -webkit-touch-callout: none;
-  pointer-events: none;
-  margin-right: 5px;
-  margin-top: 5px;
-}
-
-img {
-  width: 60px;
-  height: 40px;
-  user-select: none;
-}
-
-.visa {
-  width: 58px;
-  height: 25px;
-}
-
-.elo {
-  height: 27px;
-}
-
-.Cheader {
-  width: 100%;
-  height: 30%;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  flex-direction: row-reverse;
-}
-
-.card__chip {
-  width: 55px;
-  height: 40px;
-  background: #D4AF37;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 7px;
-  margin-left: 5px;
-  margin-top: 5px;
-
-  svg {
-    width: 58px;
-    height: 80px;
-    position: relative;
-    top: 7px;
-  }
-}
-
-.Cbody {
-  width: 100%;
-  height: 33px;
-  position: absolute;
-  bottom: 40%;
-  display: flex;
-  align-items: center;
-
-  p {
-    font-size: 30px;
-    margin-left: 8%;
-    color: white;
-  }
-}
-
-.Cfooter {
-  width: 95%;
-  height: 33px;
-  position: absolute;
-  bottom: 6%;
-  margin-left: 5px;
-  display: flex;
-  align-items: center;
-
-  .name {
-    width: 70%;
-    height: 100%;
-    color: white;
+  .Cbody {
+    width: 100%;
+    height: 33px;
+    position: absolute;
+    bottom: 40%;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-  }
-}
 
-.name {
-  p {
+    p {
+      font-size: 30px;
+      margin-left: 8%;
+      color: white;
+    }
+  }
+
+  .Cfooter {
+    width: 95%;
+    height: 33px;
     position: absolute;
-    left: 0;
-    top: 0;
+    bottom: 6%;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+
+    .name {
+      width: 70%;
+      height: 100%;
+      color: white;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
   }
 
-  span {
-    font-size: 10px;
+  .name {
+    p {
+      position: absolute;
+      left: 0;
+      top: 20px;
+    }
+
+    span {
+      font-size: 10px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .expiration__data {
+    width: 30%;
+    height: 100%;
+    color: white;
+
+    p {
+      position: absolute;
+      right: 0;
+      top: 20px;
+    }
+
+    span {
+      font-size: 10px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .btn {
+    width: 90%;
+    height: 45px;
     position: absolute;
-    left: 0;
-    top: 0;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    border-radius: 4px;
+    background: #2e2e2e;
+    box-shadow: 3px 10px 20px 0px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    color: white;
+    transition: .1s ease;
+    cursor: pointer;
+    outline: none;
   }
-}
 
-.expiration__data {
-  width: 30%;
-  height: 100%;
-  color: white;
+  .btn__active {
+    bottom: 6%;
+    left: 49%;
+  }
 
-  p {
+  .cvv-active {
+    transform: rotateY(180deg);
+  }
+
+  .front {
+    width: 350px;
+    height: 200px;
     position: absolute;
-    right: 0;
-    top: 0;
+    backface-visibility: hidden;
   }
 
-  span {
-    font-size: 10px;
+  .back {
     position: absolute;
-    right: 0;
-    top: 0;
-  }
-}
-
-.btn {
-  width: 90%;
-  height: 45px;
-  position: absolute;
-  bottom: 7%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: none;
-  border-radius: 4px;
-  background: #2e2e2e;
-  box-shadow: 3px 10px 20px 0px rgba(0, 0, 0, 0.3);
-  font-size: 20px;
-  color: white;
-  transition: .1s ease;
-  cursor: pointer;
-  outline: none;
-}
-
-.btn__active {
-  bottom: 6%;
-  left: 49%;
-}
-
-.cvv-active {
-  transform: rotateY(180deg);
-}
-
-.front {
-  width: 350px;
-  height: 200px;
-  position: absolute;
-  backface-visibility: hidden;
-}
-
-.back {
-  position: absolute;
-  backface-visibility: hidden;
-  width: 350px;
-  height: 200px;
-  color: white;
-  transform: rotateY(180deg);
-  border-radius: 10px;
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRtX-QkYwDKEXw_jriWgI5vplXUadOusPHRitOZKZCfBqJqK7IU");
-  background-size: cover;
-  z-index: 2;
-  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.strip {
-  width: 100%;
-  height: 40px;
-  background: linear-gradient(135deg, #404040, #1a1a1a);
-  position: relative;
-  top: 25px;
-}
-
-.cvv-container {
-  width: 90%;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  p {
+    backface-visibility: hidden;
+    width: 350px;
+    height: 200px;
+    color: white;
+    transform: rotateY(180deg);
+    border-radius: 10px;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRtX-QkYwDKEXw_jriWgI5vplXUadOusPHRitOZKZCfBqJqK7IU");
+    background-size: cover;
     z-index: 2;
-    position: absolute;
-    left: 65%;
-    top: 25%;
-    color: black;
-    margin: 0;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 
-  .cvv-strip {
+  .strip {
     width: 100%;
-    height: 35px;
-    background: white;
+    height: 40px;
+    background: linear-gradient(135deg, #404040, #1a1a1a);
+    position: relative;
+    top: 25px;
+  }
+
+  .cvv-container {
+    width: 90%;
+    height: 40px;
     position: absolute;
-    top: 5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    p {
+      z-index: 2;
+      position: absolute;
+      left: 65%;
+      top: 25%;
+      color: black;
+      margin: 0;
+    }
+
+    .cvv-strip {
+      width: 100%;
+      height: 35px;
+      background: white;
+      position: absolute;
+      top: 5%;
+    }
   }
-}
 
-.valid {
-  border-color: #4BB54380;
-  box-shadow: 0 0 2px #4BB54380;
-  background: #4BB54310;
+  .valid {
+    border-color: #4BB54380;
+    box-shadow: 0 0 2px #4BB54380;
+    background: #4BB54310;
 
-  &:focus {
-    border-color: #4bb54310;
-    box-shadow: 0 0 2px #4BB543;
+    &:focus {
+      border-color: #4bb54310;
+      box-shadow: 0 0 2px #4BB543;
+    }
   }
-}
 
-.notValid {
-  border-color: #D8000C;
-  box-shadow: 0 0 2px #D8000C;
-  background: #d800bb10;
-
-  &:focus {
+  .notValid {
     border-color: #D8000C;
     box-shadow: 0 0 2px #D8000C;
-    background: #d800bb10;
+    background-color: brown !important;
+
+    &:focus {
+      border-color: #D8000C;
+      box-shadow: 0 0 2px #D8000C;
+      background-color: brown !important;
+    }
   }
 }
 </style>
