@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import fs from 'fs';
 
-const host = 'credit-card-challenge.test';
+// const host = 'credit-card-challenge.test';
 
 // https://vitejs.dev/config/
 export default defineConfig({
