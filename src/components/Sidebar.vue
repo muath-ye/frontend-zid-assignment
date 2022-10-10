@@ -1,4 +1,4 @@
-vue.<template>
+<template>
   <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
     <div class="logo">
         <img src="../assets/vue.svg" alt="vue-logo">
@@ -38,7 +38,7 @@ const ToggleMenu = () => {
 aside {
   display: flex;
   flex-direction: column;
-  width: calc(2rem);
+  width: calc(4rem);
   min-height: 100vh;
   overflow: hidden;
   padding: 1rem;
